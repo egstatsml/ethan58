@@ -95,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______, _______, _______, _______, _______,                    _______, _______, _______,_______, _______, _______,
   _______, KC_LBRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RBRC,       LT(0,KC_MINS), LT(0,KC_SLSH),TO(_QWERTY),KC_EQL,KC_MINS,KC_PIPE,
   KC_GRV,  KC_LPRN,  KC_DLR, KC_PERC, KC_CIRC, KC_BSLS,                   KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_CIRC, KC_BSLS,
-  _______, KC_LCBR, KC_EXLM,   KC_AT, KC_LSFT, KC_SLSH _______, _______, KC_PAUS, KC_UNDS, KC_CIRC, KC_RPRN, KC_RBRC, KC_RCBR,
+  _______, KC_LCBR, KC_EXLM,   KC_AT, KC_LSFT, KC_SLSH, _______, _______, KC_PAUS, KC_UNDS, KC_CIRC, KC_RPRN, KC_RBRC, KC_RCBR,
            KC_LALT, LGUI_T(KC_MINS), LCTL_T(KC_SPC), TO(_QWERTY), TO(_QWERTY), RCTL_T(KC_ENT), RGUI_T(KC_BSPC), KC_RALT
 ),
 /* ADJUST
