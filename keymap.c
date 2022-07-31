@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
   KC_LCTRL, KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,    KC_QUOT,
   KC_LCTRL,LGUI_T(KC_Z),LALT_T(KC_X),LCTL_T(KC_C),LSFT_T(KC_V),KC_B,KC_LBRC,KC_RBRC, KC_N,RSFT_T(KC_M),RCTL_T(KC_COMM),RALT_T(KC_DOT),RGUI_T(KC_SLASH), KC_RSFT,
-           KC_LGUI, LGUI_T(KC_MINS), LCTL_T(KC_SPC), LSFT_T(KC_TAB), TO(_NUMB), RCTL_T(KC_ENT), RGUI_T(KC_BSPC), KC_RALT
+           KC_LALT, LGUI_T(KC_MINS), LCTL_T(KC_SPC), LSFT_T(KC_TAB), TO(_NUMB), RCTL_T(KC_ENT), RGUI_T(KC_BSPC), KC_RALT
 ),
 /* NUMB
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -74,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, KC_LBRC,   KC_7,    KC_8,    KC_9,  KC_RBRC,          LT(0,KC_MINS), LT(0,KC_SLSH),TO(_QWERTY),KC_EQL,KC_MINS,KC_PIPE,
   _______, KC_LPRN,   KC_4,    KC_5,    KC_6,  KC_BSLS,                     KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_CIRC, KC_BSLS,
   _______, KC_LCBR,   KC_1,    KC_2,    KC_3,  KC_SLSH,  KC_LPRN, KC_RPRN,  KC_PAUS, KC_UNDS, KC_CIRC, KC_RPRN, KC_RBRC, KC_RCBR,
-           KC_LGUI, LGUI_T(KC_MINS), LCTL_T(KC_SPC), TO(_QWERTY), TO(_SYMB), RCTL_T(KC_ENT), RGUI_T(KC_BSPC), KC_RALT
+           KC_LALT, LGUI_T(KC_MINS), LCTL_T(KC_SPC), TO(_QWERTY), TO(_SYMB), RCTL_T(KC_ENT), RGUI_T(KC_BSPC), KC_RALT
 ),
 /* SYMB
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -96,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, KC_LBRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RBRC,       LT(0,KC_MINS), LT(0,KC_SLSH),TO(_QWERTY),KC_EQL,KC_MINS,KC_PIPE,
   KC_GRV,  KC_LPRN,  KC_DLR, KC_PERC, KC_CIRC, KC_PERC,                   KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_CIRC, KC_BSLS,
   _______, KC_LCBR, KC_EXLM,   KC_AT, KC_LSFT, _______, _______, _______, KC_PAUS, KC_UNDS, KC_CIRC, KC_RPRN, KC_RBRC, KC_RCBR,
-           KC_LGUI, LGUI_T(KC_MINS), LCTL_T(KC_SPC), TO(_QWERTY), TO(_QWERTY), RCTL_T(KC_ENT), RGUI_T(KC_BSPC), KC_RALT
+           KC_LALT, LGUI_T(KC_MINS), LCTL_T(KC_SPC), TO(_QWERTY), TO(_QWERTY), RCTL_T(KC_ENT), RGUI_T(KC_BSPC), KC_RALT
 ),
 /* ADJUST
  * ,-----------------------------------------.                    ,-----------------------------------------.
