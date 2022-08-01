@@ -157,17 +157,32 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
  *     ignoring the mod tap interrupt per keys. In particular, I want to ignore the
  *     mod tap interrupt for the letter keys, but I want it to be used for
  *     the Shift/Tab key. I can do that here.
+ *     Other keys I want it to work for include the thumb clusters.
+ *     I dont typically hit the thumb cluster keys by accident whilst using
+ *     them in a chord with other keys, so I want those keys to be hadled as
+ *     a modifier if another key is pressed at the same time, regardless of
+ *     the timeout period.
+ *
  *     More info about this can be found at:
  *     https://docs.qmk.fm/#/tap_hold
  *     */
 bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        // Force the mod-tap key press to be handled as a modifier if any
+        // other key was pressed while the mod-tap key is held down.
         case LSFT_T(KC_TAB):
-            // Force the mod-tap key press to be handled as a modifier if any
-            // other key was pressed while the mod-tap key is held down.
-           return false;
+          return false;
+        case LGUI_T(KC_MINS):
+          return false;
+        case LCTL_T(KC_SPC):
+          return false;
+        case RCTL_T(KC_ENT):
+          return false;
+        case RGUI_T(KC_BSPC):
+          return false;
         default:
             // Do not force the mod-tap key press to be handled as a modifier
+            /* // if any other key was pressed while the mod-tap key is held down. */
             // if any other key was pressed while the mod-tap key is held down.
             return true;
     }
