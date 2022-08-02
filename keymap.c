@@ -162,6 +162,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
  *     them in a chord with other keys, so I want those keys to be hadled as
  *     a modifier if another key is pressed at the same time, regardless of
  *     the timeout period.
+ *     An exception to this at the moment is the left control/space key.
+ *     Since I have this mapped to an extremely common key at the moment,
+ *     If I ignore the mod tap interrupt here, I am often sending Ctrl+<letter>
+ *     just in normal typing, so am going to exvlude it.
  *
  *     More info about this can be found at:
  *     https://docs.qmk.fm/#/tap_hold
@@ -170,11 +174,11 @@ bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         // Force the mod-tap key press to be handled as a modifier if any
         // other key was pressed while the mod-tap key is held down.
+        // To achieve this, have the case return false for the key sequence of
+        // interest
         case LSFT_T(KC_TAB):
           return false;
         case LGUI_T(KC_MINS):
-          return false;
-        case LCTL_T(KC_SPC):
           return false;
         case RCTL_T(KC_ENT):
           return false;
@@ -182,7 +186,6 @@ bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
           return false;
         default:
             // Do not force the mod-tap key press to be handled as a modifier
-            /* // if any other key was pressed while the mod-tap key is held down. */
             // if any other key was pressed while the mod-tap key is held down.
             return true;
     }
