@@ -32,6 +32,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * the default tapping term and set it a bit higher. Everything else will be
  * custom. */
 #define TAPPING_FORCE_HOLD
-#define TAPPING_TERM 250
+#define TAPPING_TERM 200
 #define IGNORE_MOD_TAP_INTERRUPT_PER_KEY
 
