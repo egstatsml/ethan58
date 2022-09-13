@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
   KC_LCTRL, KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,    KC_QUOT,
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,  KC_LBRC, KC_RBRC,  KC_N,    KC_M, KC_COMM,  KC_DOT,KC_SLASH,    KC_RSFT,
-           KC_LALT, LGUI_T(KC_MINS), LCTL_T(KC_SPC), LSFT_T(KC_TAB), TO(_NUMB), RCTL_T(KC_ENT), RGUI_T(KC_BSPC), KC_RALT
+           KC_LALT, LGUI_T(KC_MINS),  LCTL_T(KC_TAB),LCTL_T(KC_SPC),RSFT_T(KC_ENT),TO(_NUMB), RGUI_T(KC_BSPC), KC_RALT
 ),
 /* NUMB
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -74,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, KC_LBRC,   KC_7,    KC_8,    KC_9,  KC_RBRC,          LT(0,KC_MINS), LT(0,KC_SLSH),TO(_QWERTY),KC_EQL,KC_MINS,KC_PIPE,
   _______, KC_LPRN,   KC_4,    KC_5,    KC_6,  KC_BSLS,                     KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_CIRC, KC_BSLS,
   _______, KC_LCBR,   KC_1,    KC_2,    KC_3,  KC_SLSH,  KC_LPRN, KC_RPRN,  KC_PAUS, KC_UNDS, KC_CIRC, KC_RPRN, KC_RBRC, KC_RCBR,
-           KC_LALT, LGUI_T(KC_MINS), LCTL_T(KC_SPC), TO(_QWERTY), TO(_SYMB), RCTL_T(KC_ENT), RGUI_T(KC_BSPC), KC_RALT
+           KC_LALT, LGUI_T(KC_MINS),  TO(_QWERTY),LCTL_T(KC_SPC),RCTL_T(KC_ENT), TO(_SYMB), RGUI_T(KC_BSPC), KC_RALT
 ),
 /* SYMB
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -96,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, KC_LBRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RBRC,       LT(0,KC_MINS), LT(0,KC_SLSH),TO(_QWERTY),KC_EQL,KC_MINS,KC_PIPE,
   KC_GRV,  KC_LPRN,  KC_DLR, KC_PERC, KC_CIRC, KC_BSLS,                   KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_CIRC, KC_BSLS,
   _______, KC_LCBR, KC_EXLM,   KC_AT, KC_LSFT, KC_SLSH, _______, _______, KC_PAUS, KC_UNDS, KC_CIRC, KC_RPRN, KC_RBRC, KC_RCBR,
-           KC_LALT, LGUI_T(KC_MINS), LCTL_T(KC_SPC), TO(_QWERTY), TO(_QWERTY), RCTL_T(KC_ENT), RGUI_T(KC_BSPC), KC_RALT
+           KC_LALT, LGUI_T(KC_MINS),  TO(_QWERTY),LCTL_T(KC_SPC), RCTL_T(KC_ENT),TO(_QWERTY), RGUI_T(KC_BSPC), KC_RALT
 ),
 /* ADJUST
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -143,20 +143,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return true;
 }
-
-
 /* I want most of the mod keys to be handled with a certain amount of care,
  *     in that for the mod keys that are assigned to the keys below the home row,
  *     I want the keys themselves to be prioritised. For those keys I am not really
  *     trying to work quikly, nor am I typically in the flow of typing, so I want the
  *     letters themselves to be treated as first class.
  *
- *     For the Shift/Tab key, I want shift the be  prioritised. If I am pressing
- *     the Shift/tab key, I want Shift to be activated if I push another key, even
+ *     For the Shift/Ent key, I want shift the be  prioritised. If I am pressing
+ *     the Shift/Ent key, I want Shift to be activated if I push another key, even
  *     if i push the next key before the tapping timeout. I can achieve this by
  *     ignoring the mod tap interrupt per keys. In particular, I want to ignore the
  *     mod tap interrupt for the letter keys, but I want it to be used for
- *     the Shift/Tab key. I can do that here.
+ *     the Shift/Entkey. I can do that here.
  *     Other keys I want it to work for include the thumb clusters.
  *     I dont typically hit the thumb cluster keys by accident whilst using
  *     them in a chord with other keys, so I want those keys to be hadled as
@@ -176,11 +174,9 @@ bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
         // other key was pressed while the mod-tap key is held down.
         // To achieve this, have the case return false for the key sequence of
         // interest
-        case LSFT_T(KC_TAB):
+        case RSFT_T(KC_ENT):
           return false;
         case LGUI_T(KC_MINS):
-          return false;
-        case RCTL_T(KC_ENT):
           return false;
         case RGUI_T(KC_BSPC):
           return false;
