@@ -31,6 +31,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Defines for my tapping terms.  For the mods below the home row I am going to use
  * the default tapping term and set it a bit higher. Everything else will be
  * custom. */
+
+
+/* The HOLD_ON_OTHER_KEY_PRESS option specifies it such that if one of my mod keys is held down
+ * and I press another key, the hold function is selected, even if I haven't been holding it for
+ * longer than the TAPPING_TERM. Can get more info at the documentation,
+ *     https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md */
+
 #define TAPPING_FORCE_HOLD
 #define TAPPING_TERM 200
-#define IGNORE_MOD_TAP_INTERRUPT_PER_KEY
+#define HOLD_ON_OTHER_KEY_PRESS
+/* #define IGNORE_MOD_TAP_INTERRUPT_PER_KEY */
