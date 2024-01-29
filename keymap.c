@@ -30,21 +30,22 @@ enum layer_number {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [_QWERTY] = LAYOUT(
-  KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                     KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_GRV,
-  KC_BSLS,  KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
-  KC_LCTL, KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,    KC_QUOT,
-  KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,  KC_LBRC, KC_RBRC,  KC_N,    KC_M, KC_COMM,  KC_DOT,KC_SLASH,    KC_RSFT,
-           KC_LALT, LGUI_T(KC_MINS),  LALT_T(KC_TAB),LCTL_T(KC_SPC),RSFT_T(KC_ENT),TO(_NUMB), RGUI_T(KC_BSPC), KC_RALT
+  KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,    KC_NO,                     KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,     KC_NO,
+  KC_ESC,LGUI_T(KC_Q),LALT_T(KC_W),LCTL_T(KC_E),LSFT_T(KC_R),KC_T,       KC_Y,RSFT_T(KC_U),LCTL_T(KC_I),RALT_T(KC_O),RGUI_T(KC_P),KC_GRV,
+  KC_NO,   KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,    KC_K,    KC_L,  KC_SCLN,  KC_QUOT,
+  KC_NO,   KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,  KC_NO,     KC_NO,  KC_N,    KC_M, KC_COMM,    KC_DOT,KC_SLASH, KC_NO,
+           KC_NO,  KC_ESC,  KC_TAB, CTL_T(KC_SPC), RSFT_T(KC_ENT),TO(_NUMB), KC_BSPC, KC_NO
 ),
+
 /* NUMB
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |  [   |  7   |  8   |   9  |  ]   |                    |  +/- |*-slsh|QWERTY|  eql |  -   |  |   |
+ * |      |  *   |  =   |  [/{ |  ]/} |  |   |                    |   %  |  7   |  8   |  9   |  ^   |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |  (   |  4   |  5   |  6   |  \   |-------.    ,-------| Left | Down |  Up  |Right |  ^   |  \   |
- * |------+------+------+------+------+------|   (   |    |    )  |------+------+------+------+------+------|
- * |      |  {   |  1   |  2   |  3   |  /   |-------|    |-------| PAUSE|  _   |  ^   |  )   |  ]   |  }   |
+ * |      |  @   |  +   |  (   |   )  | \/|  |-------.    ,-------|   #  |  4   |  5   |  6   |  $   |      |
+ * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
+ * |      |  &   | -/_  | `/~  | PAUSE|  /   |-------|    |-------|   0  |  3   |  2   |  1   |  !   |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LALT | LCTRL|QWERTY| / ENTER /       \SPACE \  | SYMB |BackSP| RALT |
  *                   |      | LGUI |      |/LCTRL  /         \RSHIFT\ |      |      |      |
@@ -52,10 +53,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_NUMB] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                     _______, _______, _______, _______, _______, _______,
-  _______, KC_LBRC,   KC_7,    KC_8,    KC_9,  KC_RBRC,                     KC_PPLS, KC_SLSH,TO(_QWERTY),KC_EQL,KC_MINS,KC_PIPE,
-  _______, KC_LPRN,   KC_4,    KC_5,    KC_6,  KC_BSLS,                     KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_CIRC, KC_BSLS,
-  _______, KC_LCBR,   KC_1,    KC_2,    KC_3,  KC_SLSH,  KC_LPRN, KC_RPRN,  KC_PAUS, KC_UNDS, KC_CIRC, KC_RPRN, KC_RBRC, KC_RCBR,
-           KC_LALT, LGUI_T(KC_MINS),  TO(_QWERTY),LCTL_T(KC_SPC),RCTL_T(KC_ENT), TO(_SYMB), RGUI_T(KC_BSPC), KC_RALT
+  _______,LGUI_T(KC_PAST),LALT_T(KC_EQL),LCTL_T(KC_LBRC),LSFT_T(KC_RBRC),KC_PIPE,KC_PERC,RSFT_T(KC_7),LCTL_T(KC_8),RALT_T(KC_9),RGUI_T(KC_CIRC),_______,
+  /* _______, KC_PAST, KC_EQL,  KC_LBRC,  KC_RBRC,  KC_PIPE,                     KC_PERC, KC_7,   KC_8,   KC_9, KC_CIRC, KC_NO, */
+  _______,  KC_AT,  KC_PLUS,  KC_LPRN,  KC_RPRN,  KC_BSLS,                     KC_HASH, KC_4,   KC_5,   KC_6,  KC_DLR,  KC_GRV,
+  /* _______, KC_AT,  KC_PLUS,  KC_LPRN,  KC_RPRN,  KC_BSLS,                     KC_HASH, KC_4,   KC_5,   KC_6, KC_DLR,  KC_NO, */
+  _______, KC_AMPR,KC_MINS,  KC_GRV,   KC_PAUS,  KC_NO,   KC_NO,     KC_NO,   KC_0,    KC_1,   KC_2,   KC_3, KC_EXLM, KC_NO,
+  _______, KC_ESC, TO(_QWERTY), LCTL_T(KC_SPC),   RSFT_T(KC_ENT),TO(_SYMB), KC_BSPC, KC_NO
 ),
 /* SYMB
  * ,-----------------------------------------.                    ,-----------------------------------------.

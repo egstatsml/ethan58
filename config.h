@@ -38,7 +38,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * longer than the TAPPING_TERM. Can get more info at the documentation,
  *     https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md */
 
+/* #define IGNORE_MOD_TAP_INTERRUPT */
 #define TAPPING_FORCE_HOLD
 #define TAPPING_TERM 200
-#define HOLD_ON_OTHER_KEY_PRESS
+
+/* #define TAPPING_FORCE_HOLD */
+/*#define HOLD_ON_OTHER_KEY_PRESS*/
 /* #define IGNORE_MOD_TAP_INTERRUPT_PER_KEY */
