@@ -31,56 +31,56 @@ enum layer_number {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [_QWERTY] = LAYOUT(
   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,    KC_NO,                     KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,     KC_NO,
-  KC_ESC,LGUI_T(KC_Q),LALT_T(KC_W),LCTL_T(KC_E),LSFT_T(KC_R),KC_T,       KC_Y,RSFT_T(KC_U),LCTL_T(KC_I),RALT_T(KC_O),RGUI_T(KC_P),KC_GRV,
-  KC_NO,   KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,    KC_K,    KC_L,  KC_SCLN,  KC_QUOT,
-  KC_NO,   KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,  KC_NO,     KC_NO,  KC_N,    KC_M, KC_COMM,    KC_DOT,KC_SLASH, KC_MINS,
-  KC_NO,  KC_BSPC,  KC_TAB, CTL_T(KC_SPC), RSFT_T(KC_ENT),TO(_NUMB), TO(_SYMB), KC_NO
+  KC_ESC,LGUI_T(KC_Q),LALT_T(KC_W),LCTL_T(KC_E),LGUI_T(KC_R),KC_T,       KC_Y,RGUI_T(KC_U),LCTL_T(KC_I),RALT_T(KC_O),RGUI_T(KC_P),KC_GRV,
+  KC_BSLS, KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,    KC_K,    KC_L,  KC_SCLN,  KC_QUOT,
+  KC_ESC,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,  KC_NO,     KC_NO,  KC_N,    KC_M, KC_COMM,    KC_DOT,KC_SLASH, KC_MINS,
+  KC_NO,  KC_BSPC,  KC_TAB, CTL_T(KC_SPC), RSFT_T(KC_ENT),MO(_SYMB), LT(_NUMB, KC_BSPC), KC_NO
 ),
 
-/* NUMB
+/* SYMB
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |  *   |  =   |  [/{ |  ]/} |  |   |                    |   %  |  7   |  8   |  9   |  ^   |      |
+ * |   !  |  *   |  =   |  [   |   ]  |  $   |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |  @   |  +   |  (   |   )  | \/|  |-------.    ,-------|   #  |  4   |  5   |  6   |  $   |      |
+ * |  \/| |  @   |  +   |  (   |   )  | \/|  |-------.    ,-------| LEFT |  UP  | DOWN | RIGHT|      |      |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * |      |  &   | -/_  | `/~  | PAUSE|  /   |-------|    |-------|   0  |  3   |  2   |  1   |  !   |      |
+ * |      |  &   | -/_  |  {   |   }  |  /   |-------|    |-------|   _  |      |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LALT | LCTRL|QWERTY| / ENTER /       \SPACE \  | SYMB |BackSP| RALT |
  *                   |      | LGUI |      |/LCTRL  /         \RSHIFT\ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
-[_NUMB] = LAYOUT(
+[_SYMB] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                     _______, _______, _______, _______, _______, _______,
-  _______,LGUI_T(KC_PAST),LALT_T(KC_EQL),LCTL_T(KC_LBRC),LSFT_T(KC_RBRC),KC_PIPE,KC_PERC,RSFT_T(KC_7),LCTL_T(KC_8),RALT_T(KC_9),RGUI_T(KC_CIRC),_______,
-  /* _______, KC_PAST, KC_EQL,  KC_LBRC,  KC_RBRC,  KC_PIPE,                     KC_PERC, KC_7,   KC_8,   KC_9, KC_CIRC, KC_NO, */
-  _______,  KC_AT,  KC_PLUS,  KC_LPRN,  KC_RPRN,  KC_BSLS,                     KC_HASH, KC_4,   KC_5,   KC_6,  KC_DLR,  KC_GRV,
-  /* _______, KC_AT,  KC_PLUS,  KC_LPRN,  KC_RPRN,  KC_BSLS,                     KC_HASH, KC_4,   KC_5,   KC_6, KC_DLR,  KC_NO, */
-  _______, KC_AMPR,KC_MINS,  KC_GRV,   KC_PAUS,  KC_NO,   KC_NO,     KC_NO,   KC_0,    KC_1,   KC_2,   KC_3, KC_EXLM, KC_NO,
-  _______, KC_ESC, TO(_QWERTY), LCTL_T(KC_SPC),   RSFT_T(KC_ENT),TO(_SYMB), KC_BSPC, KC_NO
+  KC_EXLM, LGUI_T(KC_PAST),LALT_T(KC_EQL),LCTL_T(KC_LBRC),LGUI_T(KC_RBRC),KC_DLR, _______, _______, _______, _______, _______, _______,
+  KC_BSLS, KC_AT,  KC_PLUS,  KC_LPRN,  KC_RPRN,  KC_BSLS,                     KC_LEFT, KC_DOWN,   KC_UP,   KC_RGHT, _______,  _______,
+  _______, KC_AMPR,KC_MINS,  KC_LCBR,   KC_RCBR,  KC_NO,           KC_NO,     KC_UNDS,   KC_0,    KC_1,   KC_2,   KC_3, KC_EXLM, KC_NO,
+  KC_NO,  KC_BSPC,  KC_TAB, CTL_T(KC_SPC), RSFT_T(KC_ENT), _______, MO(_NUMB), KC_NO
+  /* _______, KC_ESC, TO(_QWERTY), LCTL_T(KC_SPC),   RSFT_T(KC_ENT),TO(_SYMB), KC_BSPC, KC_NO */
 ),
-/* SYMB
+/* NUMB
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |   `  |  [   |  &   |  *   |  (   |  )   |                    |  *   |  /   |QWERTY|  eql |  -   |  |   |
+ * |      |      |  7   |  8   |   9  |      |                    |  *   |  /   |QWERTY|  eql |  -   |  |   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |   `  |  (   |  $   |  %   |  ^   |  \   |-------.    ,-------| Left | Down |  Up  |Right |  ^   |  \   |
+ * |      |      |  4   |  5   |   6  |      |-------.    ,-------| Left | Down |  Up  |Right |  ^   |  \   |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * |      |  {   |  !   |  @   |  #   |  /   |-------|    |-------| PAUSE|  _   |  ^   |  )   |  ]   |  }   |
+ * |      |  0   |  1   |  3   |   3  |      |-------|    |-------| PAUSE|  _   |  ^   |  )   |  ]   |  }   |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LALT | LCTRL|QWERTY| / ENTER /       \SPACE \  |QWERTY|BackSP| RALT |
  *                   |      | LGUI |      |/LCTRL  /         \RSHIFT\ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
 
-[_SYMB] = LAYOUT(
-  _______, _______, _______, _______, _______, _______,                    _______, _______, _______,_______, _______, _______,
-  _______, KC_LBRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RBRC,                   KC_PPLS, KC_SLSH,TO(_QWERTY),KC_EQL,KC_MINS,KC_PIPE,
-  KC_GRV,  KC_LPRN,  KC_DLR, KC_PERC, KC_CIRC, KC_BSLS,                   KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_CIRC, KC_BSLS,
-  _______, KC_LCBR, KC_EXLM,   KC_AT, KC_LSFT, KC_SLSH, _______, _______, KC_PAUS, KC_UNDS, KC_CIRC, KC_RPRN, KC_RBRC, KC_RCBR,
-           KC_LALT, LGUI_T(KC_MINS),  TO(_QWERTY),LCTL_T(KC_SPC), RCTL_T(KC_ENT),TO(_QWERTY), RGUI_T(KC_BSPC), KC_RALT
+[_NUMB] = LAYOUT(
+  _______, _______, _______, _______, _______,_______,                     _______, _______,_______, _______, _______,_______,
+  _______,_______,LGUI_T(KC_7),LALT_T(KC_8),LCTL_T(KC_9), _______,                _______, _______, _______,_______, _______, _______,
+  _______,_______, KC_4, KC_5, KC_6, _______,                          KC_LEFT, KC_DOWN,   KC_UP,   KC_RGHT, _______,  _______,
+  _______,KC_0,  KC_1,  KC_2, KC_3, _______, _______,          _______, _______, _______, _______,_______, _______, _______,
+  KC_NO,  KC_BSPC,  KC_TAB, CTL_T(KC_SPC), RSFT_T(KC_ENT),  MO(_SYMB), _______, KC_NO
+           /* KC_LALT, LGUI_T(KC_MINS),  TO(_QWERTY),LCTL_T(KC_SPC), RCTL_T(KC_ENT),TO(_QWERTY), RGUI_T(KC_BSPC), KC_RALT */
 ),
 /* ADJUST
  * ,-----------------------------------------.                    ,-----------------------------------------.
